@@ -13,10 +13,9 @@ A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z}
 <number>: {0|1|2|3|4|5|6|7|8|9} 
 <logic>: true | false 
 <variable-definition>: <type-specifier> <denomination> <assignment-expression> [<number> | <logic> | <arithmetic-operator> ] 
-<procedure-definition>: proc <denomination> ({<params>}| ε) <ini-del> <statement> <fin-del>
 
 3. Declaração de procedimentos (sem e com parâmetros) 
-<function-definition>: func <denomination> ({<params>}| ε) <ini-del> < statement > <return-statement> <fin-del> 
+<procedure-definition>: proc <denomination> ({<params>}| ε) <statement> end 
 <params>: <type-specifier> <denomination> ,
 <denomination>: <letter> {<letter> | <number> | ε} 
 <letter>: (a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z| 
@@ -24,7 +23,6 @@ A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z)
 <number>: {0|1|2|3|4|5|6|7|8|9} 
 <logic>: true | false 
 <variable-definition>: <type-specifier> <denomination> <assignment-expression> [<number> | <logic> | <arithmetic-operator> ] 
-<procedure-definition>: proc <denomination> ({<params>}| ε) <ini-del> <statement> <fin-del>
 
 3. Comandos de atribuição 
 <assignment-expression>: := 
@@ -34,19 +32,18 @@ A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z)
 <argument>: [<denomination> | <logic> | <number>]
 <procedure-calling>: <denomination> ({<argument>}| ε) 
 
-5. Comando de desvio condicional (if e else) 
-<if-statement>: if ( <boolean-expression> ) <ini-del> <statement> <fin-del> [ else <ini-del> <statement> <fin-del> ] 
+5. Comando de desvio condicional (if, else e elif) 
+<if-statement>: if ( <boolean-expression> )  <statement> [elif <statement> ] [ else <statement> end ] end
 
 6. Comando de laço (while) 
-<iteration-statement>: while ( <boolean-expression> ) <ini-del> <statement> <fin-del>endwhile 
+<iteration-statement>: while ( <boolean-expression> ) <statement> end 
 
 7. Comando de retorno de valor 
 <return-statement>: return <denomination> | <logic>
 
 8. Comandos de desvio incondicional (break e continue) 
 <jump-statement>: 
-continue  
-| break  
+continue | break  
 
 9. Comando de impressão de constante e variável na tela 
 <print-statement>: <denomination> | <number> | <logic>
@@ -70,6 +67,7 @@ continue
 | >= 
 | < 
 | <= 
+
 <statement>: 
 { 
 <function-definition> | 
